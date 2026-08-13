@@ -1,5 +1,40 @@
 <?php
+if(isset($_POST['createAccount'])){
+  $isValid=true;
+  if(isset($_POST['fullName']) && !empty($_POST['fullName']) && trim($_POST['fullName'])!=''){
+    $fullName=$_POST['fullName'];
+  }else{
+  $isValid=false;
+  echo "Full Name is required<br>";
+  }
 
+  if(isset($_POST['email']) && !empty($_POST['email']) && trim($_POST['email'])!=''){
+    $email=$_POST['email'];
+  }else{
+    $isValid=false;
+    echo "Email is required<br>";
+  }
+
+  if(isset($_POST['password']) && !empty($_POST['password'])){
+    $pwd=$_POST['password'];
+  }else{
+    $isValid=false;
+    echo "Password is required<br>";
+  }
+
+   if(isset($_POST['cpassword']) && !empty($_POST['cpassword'])){
+    $cpwd=$_POST['cpassword'];
+  }else{
+    $isValid=false;
+    echo "Confirm Password is required<br>";
+  }
+
+   if(isset($pwd) && isset($cpwd) && $pwd!=$cpwd){
+    $isValid=false;
+    echo "Two Passwords doest not match";
+  }
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +44,15 @@
   <title>Registration</title>
 </head>
 <body>
+   <form method="post">
+    <h3> Create Your Account </h3>
+    Full Name: <input type="text" name="fullName" id="fullName"><br><br>
+    Email Address: <input type="email" name="email" id="email"><br><br>
+    Phone Number: <input type="tel" name="phoneNumber" id="phone"><br><br>
+    Password: <input type="password" name="password" id="password">
+    Confirm Password: <input type="password" name="cpassword" id="cpassword"><br><br>
+    <input type="submit" name="createAccount" value="Create Account">
+</form>
   
 </body>
 </html>
