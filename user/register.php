@@ -10,6 +10,12 @@ if(isset($_POST['createAccount'])){
 
   if(isset($_POST['email']) && !empty($_POST['email']) && trim($_POST['email'])!=''){
     $email=$_POST['email'];
+
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+      $isValid=false;
+      echo "Email is not valid<br>";
+    }
+
   }else{
     $isValid=false;
     echo "Email is required<br>";
@@ -48,7 +54,8 @@ if(isset($_POST['createAccount'])){
     echo "Address is required<br>";
   }
 
-  if(isset($_FILES['document']) && !empty($_FILES['document']['name']) && $_FILES['document']['error']==0 && $_FILES['document']['size']<1000000){
+  if(isset($_FILES['document']) && !empty($_FILES['document']['name']) 
+    && $_FILES['document']['error']==0){
     $document=$_FILES['document'];
   }else{
     $isValid=false;
@@ -69,7 +76,7 @@ if(isset($_POST['createAccount'])){
   <title>Registration</title>
 </head>
 <body>
-   <form method="post">
+   <form method="post" enctype="multipart/form-data">
     <h3> Create Your Account </h3>
     Full Name: <input type="text" name="fullName" id="fullName"><br><br>
     Email Address: <input type="email" name="email" id="email"><br><br>
