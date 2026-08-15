@@ -15,6 +15,13 @@ if(isset($_POST['createAccount'])){
     echo "Email is required<br>";
   }
 
+  if(isset($_POST['phoneNumber']) && !empty($_POST['phoneNumber']) && 10==strlen($_POST['phoneNumber'])){
+    $phone=$_POST['phoneNumber'];
+  }else{
+    $isValid=false;
+    echo "Phone Number is required and must be 10 digits<br>";
+  }
+
   if(isset($_POST['password']) && !empty($_POST['password'])){
     $pwd=$_POST['password'];
   }else{
@@ -34,6 +41,24 @@ if(isset($_POST['createAccount'])){
     echo "Two Passwords doest not match";
   }
 
+  if(isset($_POST['address']) && !empty($_POST['address'])){
+    $address=$_POST['address'];
+  }else{
+    $isValid=false;
+    echo "Address is required<br>";
+  }
+
+  if(isset($_FILES['document']) && !empty($_FILES['document']['name']) && $_FILES['document']['error']==0 && $_FILES['document']['size']<1000000){
+    $document=$_FILES['document'];
+  }else{
+    $isValid=false;
+    echo "Document is required<br>";
+  }
+  
+
+
+
+
 }
 ?>
 <!DOCTYPE html>
@@ -51,6 +76,8 @@ if(isset($_POST['createAccount'])){
     Phone Number: <input type="tel" name="phoneNumber" id="phone"><br><br>
     Password: <input type="password" name="password" id="password">
     Confirm Password: <input type="password" name="cpassword" id="cpassword"><br><br>
+    Delivery Address: <input type="text" name="address" id="address"><br><br>
+    Add your NID: <input type="file" name="document" id="document"><br><br>
     <input type="submit" name="createAccount" value="Create Account">
 </form>
   
