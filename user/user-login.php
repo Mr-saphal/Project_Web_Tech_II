@@ -3,8 +3,12 @@ session_start();
 
 if(isset($_SESSION['username'])){
   header('location : welcome.php');
+  exit();
 }
+
+if(isset($_POST['login'])){
 $isValid = TRUE;
+
 if(isset($_POST['email']) && !empty($_POST['email']) && trim($_POST['email'])!=''){
     $email=$_POST['email'];
   }else{
@@ -27,12 +31,17 @@ if(isset($_POST['email']) && !empty($_POST['email']) && trim($_POST['email'])!='
   $database='project';
 
   $connection= mysqli_connect($hostname,$username,$password,$database);
+
+  if(!$connection){
+            die("Database connection failed: " . mysqli_connect_error());
+        }
+
 $pass = md5($pwd);
-  $query = "SELECT * from users where email='$email' AND password='$pass'";
+  $query = "SELECT * from users where Email='$email' AND Password='$pass'";
   $result = mysqli_query($connection, $query);
-  $user = mysqli_fetch_assoc($result);
   
   if(mysqli_num_rows($result)==1){
+    $user = mysqli_fetch_assoc($result);
     $_SESSION['username']= $user['Name'];
     header('location: welcome.php');
   }
@@ -41,6 +50,7 @@ $pass = md5($pwd);
   }
   mysqli_close($connection);
   }
+}
   
 
 ?>

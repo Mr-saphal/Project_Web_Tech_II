@@ -47,8 +47,20 @@ if(isset($_POST['createAccount'])){
     echo "Two Passwords doest not match";
   }
 
-  
- 
+  if(isset($_POST['address']) && !empty($_POST['address'])){
+    $address=$_POST['address'];
+  }else{
+    $isValid=false;
+    echo "Address is required<br>";
+  }
+
+  if(isset($_FILES['document']) && !empty($_FILES['document']['name']) 
+    && $_FILES['document']['error']==0){
+    $document=$_FILES['document'];
+  }else{
+    $isValid=false;
+    echo "Document is required<br>";
+  }
   
 if($isValid){
   $hostname='localhost';
@@ -60,8 +72,8 @@ if($isValid){
 
   if($connection){
 
-    $sql="INSERT INTO users(name,email,phoneno,password,)
-  values('$fullName','$email','$phone','$pwd')";
+    $sql="INSERT INTO users(name,email,phoneno,password,,document)
+  values('$fullName','$email','$phone','$pwd','$document')";
 
  $result= mysqli_query($connection,$sql);
  if($result){
@@ -103,6 +115,7 @@ if($isValid){
     Phone Number: <input type="tel" name="phoneNumber" id="phone"><br><br>
     Password: <input type="password" name="password" id="password">
     Confirm Password: <input type="password" name="cpassword" id="cpassword"><br><br>
+    Add your NID: <input type="file" name="document" id="document"><br><br>
     <input type="submit" name="createAccount" value="Create Account">
 </form>
   
