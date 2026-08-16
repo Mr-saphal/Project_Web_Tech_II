@@ -60,12 +60,12 @@ if($isValid){
 
   if($connection){
 
-    $sql="INSERT INTO users(name,email,phoneno,password,)
+    $sql="INSERT INTO users(name,email,phoneno,password)
   values('$fullName','$email','$phone','$pwd')";
 
  $result= mysqli_query($connection,$sql);
  if($result){
-  echo "<p style='color:green'>Registration successful.</p>";
+  echo "<p style='color:green>Registration successful.</p>";
  }else{
     echo "<p style='color:red'> Registration Failed.</p>";
  }

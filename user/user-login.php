@@ -36,13 +36,13 @@ if(isset($_POST['email']) && !empty($_POST['email']) && trim($_POST['email'])!='
             die("Database connection failed: " . mysqli_connect_error());
         }
 
-$pass = md5($pwd);
-  $query = "SELECT * from users where Email='$email' AND Password='$pass'";
+//$pass = md5($pwd);
+  $query = "SELECT * from users where Email='$email' AND Password='$pwd'";
   $result = mysqli_query($connection, $query);
   
   if(mysqli_num_rows($result)==1){
     $user = mysqli_fetch_assoc($result);
-    $_SESSION['username']= $user['Name'];
+    $_SESSION['username']= $user['name'];
     header('location: welcome.php');
   }
   else{
