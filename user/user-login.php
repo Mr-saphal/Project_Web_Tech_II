@@ -8,7 +8,7 @@ if (isset($_POST['login'])) {
         $email = $_POST['email'];
     } else {
         $isValid = false;
-        echo "User id is required<br>";
+        echo "Email is required<br>";
     }
 
     if (isset($_POST['password']) && trim($_POST['password']) != '') {
@@ -38,11 +38,9 @@ if (isset($_POST['login'])) {
 <form method="post">
 
     <h3>Login in to Chatta Fatta</h3>
-
     Email Address:<br><br>
     <input type="text" name="email" id="email">
     <br><br>
-
     Password:<br><br>
     <input type="password" name="password" id="password">
     <br><br>
