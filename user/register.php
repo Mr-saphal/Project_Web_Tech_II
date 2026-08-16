@@ -62,11 +62,43 @@ if(isset($_POST['createAccount'])){
     echo "Document is required<br>";
   }
   
+if($isValid){
+  $hostname='localhost';
+  $username= 'root';
+  $password='';
+  $database='project';
 
+  $connection= mysqli_connect($hostname,$username,$password,$database);
 
+  if($connection){
 
+    $sql="INSERT INTO users(name,email,phoneno,password,,document)
+  values('$fullName','$email','$phone','$pwd','$document')";
 
+ $result= mysqli_query($connection,$sql);
+ if($result){
+  echo "<p style='color:green'>Registration successful.</p>";
+ }else{
+    echo "<p style='color:red'> Registration Failed.</p>";
+ }
+   
+   
+  }else{
+    echo "Database connection error".mysqli_connect_error();
+    exit();
+  }
+   
+  if($result){
+    header("Location:  ");
+  }else{
+    echo "<p style='color:red'>Student has been not registered.</p>";
+  }
 }
+}
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,7 +115,6 @@ if(isset($_POST['createAccount'])){
     Phone Number: <input type="tel" name="phoneNumber" id="phone"><br><br>
     Password: <input type="password" name="password" id="password">
     Confirm Password: <input type="password" name="cpassword" id="cpassword"><br><br>
-    Delivery Address: <input type="text" name="address" id="address"><br><br>
     Add your NID: <input type="file" name="document" id="document"><br><br>
     <input type="submit" name="createAccount" value="Create Account">
 </form>
