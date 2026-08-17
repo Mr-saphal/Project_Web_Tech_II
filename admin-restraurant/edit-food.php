@@ -1,5 +1,39 @@
 <?php
 
+session_start();
+
+
+/* Default Food Data */
+
+if(!isset($_SESSION['foods'])){
+
+    $_SESSION['foods'] = array(
+
+        1 => array(
+            "name" => "Momo",
+            "category" => "Fast Food",
+            "price" => 180
+        ),
+
+        2 => array(
+            "name" => "Burger",
+            "category" => "Fast Food",
+            "price" => 250
+        ),
+
+        3 => array(
+            "name" => "Pizza",
+            "category" => "Pizza",
+            "price" => 300
+        )
+
+    );
+
+}
+
+
+/* Check ID */
+
 if(isset($_GET['id'])){
 
     $id = $_GET['id'];
@@ -12,30 +46,9 @@ if(isset($_GET['id'])){
 }
 
 
-$foodName = "";
-$category = "";
-$price = "";
+/* Check Food */
 
-
-if($id == 1){
-
-    $foodName = "Momo";
-    $category = "Fast Food";
-    $price = 180;
-
-}elseif($id == 2){
-
-    $foodName = "Burger";
-    $category = "Fast Food";
-    $price = 250;
-
-}elseif($id == 3){
-
-    $foodName = "Pizza";
-    $category = "Pizza";
-    $price = 300;
-
-}else{
+if(!isset($_SESSION['foods'][$id])){
 
     echo "Food not found.";
     exit();
@@ -43,9 +56,19 @@ if($id == 1){
 }
 
 
+/* Get Food */
+
+$foodName = $_SESSION['foods'][$id]['name'];
+
+$category = $_SESSION['foods'][$id]['category'];
+
+$price = $_SESSION['foods'][$id]['price'];
+
+
 /* Update Food */
 
 if(isset($_POST['updateFood'])){
+
 
     if(isset($_POST['foodName']) && !empty($_POST['foodName'])){
 
@@ -82,6 +105,16 @@ if(isset($_POST['updateFood'])){
 
     if(!empty($foodName) && !empty($category) && !empty($price)){
 
+
+        /* Save Updated Food */
+
+        $_SESSION['foods'][$id]['name'] = $foodName;
+
+        $_SESSION['foods'][$id]['category'] = $category;
+
+        $_SESSION['foods'][$id]['price'] = $price;
+
+
         echo "<p style='color:green'>Food updated successfully.</p>";
 
     }
@@ -100,7 +133,6 @@ if(isset($_POST['updateFood'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Edit Food</title>
-
 
     <style>
 
@@ -275,7 +307,6 @@ if(isset($_POST['updateFood'])){
 
                 </option>
 
-
             </select>
 
 
@@ -298,7 +329,7 @@ if(isset($_POST['updateFood'])){
 
 
             <a
-                href="foods.php"
+                href="food.php"
                 class="button"
             >
 

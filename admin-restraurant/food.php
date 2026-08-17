@@ -1,5 +1,36 @@
 <?php
 
+session_start();
+
+
+/* Create default foods if session does not exist */
+
+if(!isset($_SESSION['foods'])){
+
+    $_SESSION['foods'] = array(
+
+        1 => array(
+            "name" => "Momo",
+            "category" => "Fast Food",
+            "price" => 180
+        ),
+
+        2 => array(
+            "name" => "Burger",
+            "category" => "Fast Food",
+            "price" => 250
+        ),
+
+        3 => array(
+            "name" => "Pizza",
+            "category" => "Pizza",
+            "price" => 300
+        )
+
+    );
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -84,6 +115,7 @@
 
     <div class="container">
 
+
         <div class="add">
 
             <a href="add-food.php" class="button">
@@ -102,99 +134,76 @@
             <tr>
 
                 <th>ID</th>
+
                 <th>Food Name</th>
+
                 <th>Category</th>
+
                 <th>Price</th>
+
                 <th>Action</th>
 
             </tr>
 
 
-            <!-- Food 1 -->
+            <?php
 
-            <tr>
+            foreach($_SESSION['foods'] as $id => $food){
 
-                <td>1</td>
+            ?>
 
-                <td>Momo</td>
+                <tr>
 
-                <td>Fast Food</td>
-
-                <td>Rs. 180</td>
-
-                <td>
-
-                    <a href="edit-food.php?id=1" class="edit">
-                        Edit
-                    </a>
-
-                    |
-
-                    <a href="delete-food.php?id=1" class="delete">
-                        Delete
-                    </a>
-
-                </td>
-
-            </tr>
+                    <td>
+                        <?php echo $id; ?>
+                    </td>
 
 
-            <!-- Food 2 -->
-
-            <tr>
-
-                <td>2</td>
-
-                <td>Burger</td>
-
-                <td>Fast Food</td>
-
-                <td>Rs. 250</td>
-
-                <td>
-
-                    <a href="edit-food.php?id=2" class="edit">
-                        Edit
-                    </a>
-
-                    |
-
-                    <a href="delete-food.php?id=2" class="delete">
-                        Delete
-                    </a>
-
-                </td>
-
-            </tr>
+                    <td>
+                        <?php echo $food['name']; ?>
+                    </td>
 
 
-            <!-- Food 3 -->
+                    <td>
+                        <?php echo $food['category']; ?>
+                    </td>
 
-            <tr>
 
-                <td>3</td>
+                    <td>
+                        Rs. <?php echo $food['price']; ?>
+                    </td>
 
-                <td>Pizza</td>
 
-                <td>Pizza</td>
+                    <td>
 
-                <td>Rs. 300</td>
+                        <a
+                            href="edit-food.php?id=<?php echo $id; ?>"
+                            class="edit"
+                        >
+                            Edit
+                        </a>
 
-                <td>
 
-                    <a href="edit-food.php?id=3" class="edit">
-                        Edit
-                    </a>
+                        |
 
-                    |
 
-                    <a href="delete-food.php?id=3" class="delete">
-                        Delete
-                    </a>
+                        <a
+                            href="delete-food.php?id=<?php echo $id; ?>"
+                            class="delete"
+                        >
+                            Delete
+                        </a>
 
-                </td>
+                    </td>
 
-            </tr>
+                </tr>
+
+            <?php
+
+            }
+
+            ?>
+
 
         </table>
 
