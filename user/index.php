@@ -71,7 +71,8 @@
             <div class="card">
 
                 <div class="card-body">
-
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfHg-_F_5aTYBckQHO_rDuTG2CRYkE8a-5y3qqtFiF9za6JmoD4TInG3o&s=10"
+     alt="Momo" class="card-img-top">
                     <h3>Momo</h3>
 
                     <p>Chicken Momo</p>
@@ -94,6 +95,8 @@
             <div class="card">
 
                 <div class="card-body">
+                    <img src="https://pub-aaa82e9851064d22b954c3ebbafc9ae6.r2.dev/legacy/thumbnails/burger-with-melted-cheese-m-Y1i3jpYYJZYfOEfX5dX.webp"
+                     alt="Burger" class="card-img-top">
 
                     <h3>Burger</h3>
 
@@ -117,6 +120,8 @@
             <div class="card">
 
                 <div class="card-body">
+                    <img src="https://png.pngtree.com/png-vector/20241211/ourmid/pngtree-authentic-italian-pizza-with-cheese-and-fresh-vegetable-toppings-png-image_14714611.png"
+                        alt="Pizza" class="card-img-top">
 
                     <h3>Pizza</h3>
 
