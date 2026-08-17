@@ -2,31 +2,24 @@
 
 session_start();
 
-
-/* Create default foods if session does not exist */
-
 if(!isset($_SESSION['foods'])){
 
     $_SESSION['foods'] = array(
-
         1 => array(
             "name" => "Momo",
             "category" => "Fast Food",
             "price" => 180
         ),
-
         2 => array(
             "name" => "Burger",
             "category" => "Fast Food",
             "price" => 250
         ),
-
         3 => array(
             "name" => "Pizza",
             "category" => "Pizza",
             "price" => 300
         )
-
     );
 
 }
@@ -34,70 +27,42 @@ if(!isset($_SESSION['foods'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Manage Foods</title>
 
     <style>
 
-        body {
+        body{
             font-family: Arial;
-            margin: 0;
             background-color: #f2f2f2;
         }
 
-        .header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .container {
+        .container{
             width: 80%;
             margin: 30px auto;
         }
 
-        table {
+        table{
             width: 100%;
             background-color: white;
             border-collapse: collapse;
         }
 
-        th, td {
+        th, td{
             padding: 12px;
             border: 1px solid #ddd;
-            text-align: left;
         }
 
-        th {
+        th{
             background-color: #333;
             color: white;
         }
 
-        .button {
-            padding: 8px 12px;
+        a{
             text-decoration: none;
-            background-color: #333;
-            color: white;
-        }
-
-        .edit {
-            color: blue;
-        }
-
-        .delete {
-            color: red;
-        }
-
-        .add {
-            margin-bottom: 20px;
         }
 
     </style>
@@ -106,108 +71,75 @@ if(!isset($_SESSION['foods'])){
 
 <body>
 
-    <div class="header">
+<div class="container">
 
-        <h2>Manage Foods</h2>
+    <h2>Manage Foods</h2>
 
-    </div>
+    <a href="add-food.php">Add Food</a>
 
+    <br><br>
 
-    <div class="container">
+    <table>
 
+        <tr>
 
-        <div class="add">
+            <th>ID</th>
+            <th>Food Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Action</th>
 
-            <a href="add-food.php" class="button">
-                Add Food
-            </a>
+        </tr>
 
-            <a href="dashboard.php" class="button">
-                Dashboard
-            </a>
+        <?php
 
-        </div>
+        foreach($_SESSION['foods'] as $id => $food){
 
+        ?>
 
-        <table>
+        <tr>
 
-            <tr>
+            <td>
+                <?php echo $id; ?>
+            </td>
 
-                <th>ID</th>
+            <td>
+                <?php echo $food['name']; ?>
+            </td>
 
-                <th>Food Name</th>
+            <td>
+                <?php echo $food['category']; ?>
+            </td>
 
-                <th>Category</th>
+            <td>
+                Rs. <?php echo $food['price']; ?>
+            </td>
 
-                <th>Price</th>
+            <td>
 
-                <th>Action</th>
+                <a href="edit-food.php?id=<?php echo $id; ?>">
+                    Edit
+                </a>
 
-            </tr>
+                |
 
+                <a href="delete-food.php?id=<?php echo $id; ?>">
+                    Delete
+                </a>
 
-            <?php
+            </td>
 
-            foreach($_SESSION['foods'] as $id => $food){
+        </tr>
 
-            ?>
+        <?php
 
-                <tr>
+        }
 
-                    <td>
-                        <?php echo $id; ?>
-                    </td>
+        ?>
 
+    </table>
 
-                    <td>
-                        <?php echo $food['name']; ?>
-                    </td>
-
-
-                    <td>
-                        <?php echo $food['category']; ?>
-                    </td>
-
-
-                    <td>
-                        Rs. <?php echo $food['price']; ?>
-                    </td>
-
-
-                    <td>
-
-                        <a
-                            href="edit-food.php?id=<?php echo $id; ?>"
-                            class="edit"
-                        >
-                            Edit
-                        </a>
-
-
-                        |
-
-
-                        <a
-                            href="delete-food.php?id=<?php echo $id; ?>"
-                            class="delete"
-                        >
-                            Delete
-                        </a>
-
-                    </td>
-
-                </tr>
-
-            <?php
-
-            }
-
-            ?>
-
-
-        </table>
-
-    </div>
+</div>
 
 </body>
 
