@@ -71,7 +71,8 @@ if(isset($_POST['email']) && !empty($_POST['email']) && trim($_POST['email'])!='
 </head>
 <body>
     <form method="post">
-    <h3>Welcome Back to Chatta-Fatta</h3>
+    <h3>Welcome Back to <br>
+    Chatta-Fatta</h3>
 <p class="subtitle">Login to your account</p>
 
      Email: <input type="text" name="email" id="email"><br><br>

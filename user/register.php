@@ -144,38 +144,83 @@ if (isset($_POST['createAccount'])) {
 <body>
 
     <form method="post">
-<h3>Welcome to Chatta-Fatta</h3>
-<p class="subtitle">Create your account</p>
-Full Name:
-<input type="text" name="fullName" id="fullName">
-<br><br>
+
+    <h3>Welcome to Chatta-Fatta</h3>
+
+    <p class="subtitle">Create your account</p>
 
 
-Email Address:
-<input type="email" name="email" id="email">
-<br><br>
+    <div class="form-grid">
+
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+
+            <input
+                type="text"
+                name="fullName"
+                id="fullName"
+                placeholder="Enter your full name"
+            >
+        </div>
 
 
-        Phone Number:<input type="tel" name="phoneNumber" id="phone">
-<br><br>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+
+            <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter your email"
+            >
+        </div>
 
 
-        Password:<input type="password" name="password" id="password">
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
 
-        <br><br>
+            <input
+                type="tel"
+                name="phoneNumber"
+                id="phone"
+                placeholder="Enter 10 digit phone number"
+            >
+        </div>
 
 
-        Confirm Password:
-        <input type="password" name="cpassword" id="cpassword"
-        >
+        <div class="form-group">
+            <label for="password">Password</label>
 
-        <br><br>
+            <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Enter your password"
+            >
+        </div>
 
 
-        <input type="submit" name="createAccount"value="Create Account"
-        >
+        <div class="form-group">
+            <label for="cpassword">Confirm Password</label>
 
-    </form>
+            <input
+                type="password"
+                name="cpassword"
+                id="cpassword"
+                placeholder="Confirm your password"
+            >
+        </div>
+
+    </div>
+
+
+    <input
+        type="submit"
+        name="createAccount"
+        value="Create Account"
+    >
+
+</form>
     
 </body>
 
