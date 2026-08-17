@@ -26,7 +26,7 @@
     <div class="container">
 
         <a class="navbar-brand" href="index.php">
-            Food Ordering
+            Chatta-Fatta
         </a>
 
         <a class="btn btn-primary" href="user-login.php">
@@ -40,7 +40,7 @@
 
 <div class="container text-center mt-5">
 
-    <h1>Welcome to Food Ordering</h1>
+    <h1>Welcome to Chatta-Fatta</h1>
 
     <p>Order your favorite food easily.</p>
 
