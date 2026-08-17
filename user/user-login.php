@@ -43,14 +43,18 @@ if(isset($_POST['email']) && !empty($_POST['email']) && trim($_POST['email'])!='
   if(mysqli_num_rows($result)==1){
     $user = mysqli_fetch_assoc($result);
     $_SESSION['username']= $user['name'];
-    header('location: welcome.php');
+  
+        header("Location: index.php");
+      }else{
+        echo "<p style='color:red'>User has not been registered.</p>";
+      } 
   }
   else{
     echo "Invalid credentials";
   }
   mysqli_close($connection);
   }
-}
+
   
 
 ?>
@@ -61,14 +65,20 @@ if(isset($_POST['email']) && !empty($_POST['email']) && trim($_POST['email'])!='
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+
 </head>
 <body>
     <form method="post">
-    <h3> Login Form</h3>
+    <h3>Welcome Back to <br>
+    Chatta-Fatta</h3>
+<p class="subtitle">Login to your account</p>
+
      Email: <input type="text" name="email" id="email"><br><br>
     Password: <input type="password" name="password" id="password"><br><br>
  <input type="submit" name="login" value="login">
 
+ </form>
 </body>
 </html>

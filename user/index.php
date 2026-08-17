@@ -11,11 +11,13 @@
     <title>Food Ordering</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
 
+    <!-- Bootstrap CSS 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
-    >
+    > -->
 
 </head>
 
@@ -26,12 +28,17 @@
     <div class="container">
 
         <a class="navbar-brand" href="index.php">
-            Food Ordering
+            Chatta-Fatta
         </a>
 
         <a class="btn btn-primary" href="user-login.php">
             Login
         </a>
+
+        <a class="btn btn-primary" href="register.php">
+            Sign Up
+        </a>
+
 
     </div>
 
@@ -40,7 +47,7 @@
 
 <div class="container text-center mt-5">
 
-    <h1>Welcome to Food Ordering</h1>
+    <h1>Welcome to Chatta-Fatta</h1>
 
     <p>Order your favorite food easily.</p>
 

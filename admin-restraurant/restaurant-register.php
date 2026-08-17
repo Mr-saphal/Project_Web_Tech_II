@@ -6,14 +6,14 @@ if(isset($_POST['createAccount'])){
 
 
     // Full Name
-    if(isset($_POST['fullName']) && !empty($_POST['fullName']) && trim($_POST['fullName'])!=''){
+    if(isset($_POST['resName']) && !empty($_POST['resName']) && trim($_POST['resName'])!=''){
 
-        $fullName = $_POST['fullName'];
+        $resName = $_POST['resName'];
 
     }else{
 
         $isValid = false;
-        echo "Full Name is required<br>";
+        echo "Restaurant Name is required<br>";
 
     }
 
@@ -160,10 +160,10 @@ if(isset($_POST['createAccount'])){
             move_uploaded_file($documentTmp, $documentPath);
 
 
-            $sql = "INSERT INTO users
+            $sql = "INSERT INTO admin
                     (name, email, phoneno, password, address, document)
                     VALUES
-                    ('$fullName', '$email', '$phone', '$pwd', '$address', '$documentName')";
+                    ('$resName', '$email', '$phone', '$pwd', '$address', '$documentName')";
 
 
             $result = mysqli_query($connection, $sql);
@@ -212,8 +212,8 @@ if(isset($_POST['createAccount'])){
         <h3>Create Restaurant Account</h3>
 
 
-        Full Name:
-        <input type="text" name="fullName" id="fullName">
+        Restaurant Name:
+        <input type="text" name="resName" id="resName">
 
         <br><br>
 
@@ -248,7 +248,7 @@ if(isset($_POST['createAccount'])){
         <br><br>
 
 
-        Add your NID:
+        Registration Card:
         <input type="file" name="document" id="document">
 
         <br><br>

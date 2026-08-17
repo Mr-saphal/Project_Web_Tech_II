@@ -112,18 +112,14 @@ if (isset($_POST['createAccount'])) {
 
             $result = mysqli_query($connection, $sql);
 
+            
+            if($result){
+        header("Location: index.php");
+      }else{
+        echo "<p style='color:red'>User has not been registered.</p>";
+      } 
 
-            if ($result) {
-
-                echo "<p style='color:green'>Registration successful.</p>";
-
-            } else {
-
-                echo "<p style='color:red'>Registration failed.</p>";
-
-            }
-
-        } else {
+        }
 
             echo "Database connection error: "
                  . mysqli_connect_error();
@@ -132,7 +128,7 @@ if (isset($_POST['createAccount'])) {
 
     }
 
-}
+
 
 ?>
 
@@ -142,45 +138,90 @@ if (isset($_POST['createAccount'])) {
 <head>
 
     <title>Registration</title>
-
+    <link rel="stylesheet" href="register.css">
 </head>
 
 <body>
 
     <form method="post">
 
-        <h3>Create Your Account</h3>
-Full Name:
-<input type="text" name="fullName" id="fullName">
-<br><br>
+    <h3>Welcome to Chatta-Fatta</h3>
+
+    <p class="subtitle">Create your account</p>
 
 
-Email Address:
-<input type="email" name="email" id="email">
-<br><br>
+    <div class="form-grid">
+
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+
+            <input
+                type="text"
+                name="fullName"
+                id="fullName"
+                placeholder="Enter your full name"
+            >
+        </div>
 
 
-        Phone Number:<input type="tel" name="phoneNumber" id="phone">
-<br><br>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+
+            <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter your email"
+            >
+        </div>
 
 
-        Password:<input type="password" name="password" id="password">
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
 
-        <br><br>
+            <input
+                type="tel"
+                name="phoneNumber"
+                id="phone"
+                placeholder="Enter 10 digit phone number"
+            >
+        </div>
 
 
-        Confirm Password:
-        <input type="password" name="cpassword" id="cpassword"
-        >
+        <div class="form-group">
+            <label for="password">Password</label>
 
-        <br><br>
+            <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Enter your password"
+            >
+        </div>
 
 
-        <input type="submit" name="createAccount"value="Create Account"
-        >
+        <div class="form-group">
+            <label for="cpassword">Confirm Password</label>
 
-    </form>
+            <input
+                type="password"
+                name="cpassword"
+                id="cpassword"
+                placeholder="Confirm your password"
+            >
+        </div>
 
+    </div>
+
+
+    <input
+        type="submit"
+        name="createAccount"
+        value="Create Account"
+    >
+
+</form>
+    
 </body>
 
 </html>
