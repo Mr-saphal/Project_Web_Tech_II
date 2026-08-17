@@ -57,6 +57,14 @@
             color: white;
         }
 
+        .edit {
+            color: blue;
+        }
+
+        .delete {
+            color: red;
+        }
+
         .add {
             margin-bottom: 20px;
         }
@@ -78,7 +86,7 @@
 
         <div class="add">
 
-            <a href="#" class="button">
+            <a href="add-food.php" class="button">
                 Add Food
             </a>
 
@@ -102,49 +110,88 @@
             </tr>
 
 
+            <!-- Food 1 -->
+
             <tr>
 
                 <td>1</td>
+
                 <td>Momo</td>
+
                 <td>Fast Food</td>
+
                 <td>Rs. 180</td>
 
                 <td>
-                    <a href="#">Edit</a>
+
+                    <a href="edit-food.php?id=1" class="edit">
+                        Edit
+                    </a>
+
                     |
-                    <a href="#">Delete</a>
+
+                    <a href="delete-food.php?id=1" class="delete">
+                        Delete
+                    </a>
+
                 </td>
 
             </tr>
 
+
+            <!-- Food 2 -->
 
             <tr>
 
                 <td>2</td>
+
                 <td>Burger</td>
+
                 <td>Fast Food</td>
+
                 <td>Rs. 250</td>
 
                 <td>
-                    <a href="#">Edit</a>
+
+                    <a href="edit-food.php?id=2" class="edit">
+                        Edit
+                    </a>
+
                     |
-                    <a href="#">Delete</a>
+
+                    <a href="delete-food.php?id=2" class="delete">
+                        Delete
+                    </a>
+
                 </td>
 
             </tr>
 
 
+            <!-- Food 3 -->
+
             <tr>
 
                 <td>3</td>
+
                 <td>Pizza</td>
+
                 <td>Pizza</td>
+
                 <td>Rs. 300</td>
 
                 <td>
-                    <a href="#">Edit</a>
+
+                    <a href="edit-food.php?id=3" class="edit">
+                        Edit
+                    </a>
+
                     |
-                    <a href="#">Delete</a>
+
+                    <a href="delete-food.php?id=3" class="delete">
+                        Delete
+                    </a>
+
                 </td>
 
             </tr>
