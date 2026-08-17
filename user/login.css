@@ -1,3 +1,5 @@
+
+
 * {
     margin: 0;
     padding: 0;
@@ -17,10 +19,9 @@ body {
 }
 
 
-/* Login Form */
-
 form {
-    width: 400px;
+    width: 420px;
+
     background-color: white;
 
     padding: 40px;
@@ -31,65 +32,80 @@ form {
 }
 
 
-/* Heading */
+/* =========================
+   Heading
+========================= */
 
 form h3 {
     text-align: center;
-    color: #212529;
+
     font-size: 26px;
+
+    color: #212529;
+
     margin-bottom: 8px;
 }
 
 
-/* Subtitle */
+/* =========================
+   Subtitle
+========================= */
 
 .subtitle {
     text-align: center;
+
     color: #777;
+
+    font-size: 16px;
+
     margin-bottom: 30px;
 }
 
 
-/* Labels */
-
-form {
-    font-size: 16px;
-}
-
-
-/* Input fields */
+/* =========================
+   Text & Password Inputs
+========================= */
 
 input[type="text"],
 input[type="password"] {
     width: 100%;
 
-    padding: 12px;
+    padding: 12px 14px;
 
     margin-top: 8px;
-    margin-bottom: 15px;
 
     border: 1px solid #ccc;
+
     border-radius: 6px;
 
     font-size: 15px;
 
     outline: none;
+
+    transition: 0.3s;
 }
+
+
+/* Input Focus */
 
 input[type="text"]:focus,
 input[type="password"]:focus {
     border-color: #ff6b35;
+
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.12);
 }
 
 
-/* Login Button */
+/* =========================
+   Login Button
+========================= */
 
 input[type="submit"] {
     width: 100%;
 
     padding: 12px;
 
-    margin-top: 10px;
+    margin-top: 5px;
 
     background-color: #ff6b35;
 
@@ -104,23 +120,48 @@ input[type="submit"] {
     font-weight: bold;
 
     cursor: pointer;
+
+    transition: 0.3s;
 }
+
 
 input[type="submit"]:hover {
     background-color: #e85a2a;
+
+    transform: translateY(-2px);
 }
 
 
-/* Mobile */
+/* =========================
+   Error Message
+========================= */
+
+form p[style*="color:red"] {
+    color: red !important;
+
+    text-align: center;
+
+    margin-top: 15px;
+}
+
+
+/* =========================
+   Mobile Responsive
+========================= */
 
 @media (max-width: 500px) {
 
     form {
         width: 90%;
+
         padding: 30px 25px;
     }
 
     form h3 {
         font-size: 22px;
+    }
+
+    .subtitle {
+        font-size: 14px;
     }
 }
