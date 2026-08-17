@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Login Form */
+
+form {
+    width: 400px;
+    background-color: white;
+
+    padding: 40px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Heading */
+
+form h3 {
+    text-align: center;
+    color: #212529;
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+
+/* Subtitle */
+
+.subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+
+/* Labels */
+
+form {
+    font-size: 16px;
+}
+
+
+/* Input fields */
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 8px;
+    margin-bottom: 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #ff6b35;
+}
+
+
+/* Login Button */
+
+input[type="submit"] {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 10px;
+
+    background-color: #ff6b35;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #e85a2a;
+}
+
+
+/* Mobile */
+
+@media (max-width: 500px) {
+
+    form {
+        width: 90%;
+        padding: 30px 25px;
+    }
+
+    form h3 {
+        font-size: 22px;
+    }
+}

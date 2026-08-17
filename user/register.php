@@ -112,18 +112,14 @@ if (isset($_POST['createAccount'])) {
 
             $result = mysqli_query($connection, $sql);
 
+            
+            if($result){
+        header("Location: index.php");
+      }else{
+        echo "<p style='color:red'>User has not been registered.</p>";
+      } 
 
-            if ($result) {
-
-                echo "<p style='color:green'>Registration successful.</p>";
-
-            } else {
-
-                echo "<p style='color:red'>Registration failed.</p>";
-
-            }
-
-        } else {
+        }
 
             echo "Database connection error: "
                  . mysqli_connect_error();
@@ -132,7 +128,7 @@ if (isset($_POST['createAccount'])) {
 
     }
 
-}
+
 
 ?>
 
@@ -142,14 +138,14 @@ if (isset($_POST['createAccount'])) {
 <head>
 
     <title>Registration</title>
-
+    <link rel="stylesheet" href="register.css">
 </head>
 
 <body>
 
     <form method="post">
-
-        <h3>Create Your Account</h3>
+<h3>Welcome to Chatta-Fatta</h3>
+<p class="subtitle">Create your account</p>
 Full Name:
 <input type="text" name="fullName" id="fullName">
 <br><br>
@@ -180,7 +176,7 @@ Email Address:
         >
 
     </form>
-
+    
 </body>
 
 </html>
