@@ -171,7 +171,7 @@
 
 
                 <small>Administrator</small>
-                <a href="restaurant-login.php">
+                <!-- <a href="restaurant-login.php">Login</a> -->
 
             </div>
 
