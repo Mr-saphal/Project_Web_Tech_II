@@ -77,13 +77,13 @@
         </a>
 
 
-        <a href="foods.php" class="nav-item">
+        <a href="food.php" class="nav-item">
             <span>🍔</span>
             Manage Food
         </a>
 
 
-        <a href="add-category.php" class="nav-item">
+        <a href="add-categories.php" class="nav-item">
             <span>📂</span>
             Add Category
         </a>
@@ -213,7 +213,7 @@
             </a>
 
 
-            <a href="add-category.php" class="quick-card">
+            <a href="add-categories.php" class="quick-card">
 
                 <div class="quick-icon orange">
                     📂
