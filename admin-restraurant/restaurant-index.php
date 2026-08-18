@@ -61,11 +61,7 @@
         </a>
 
 
-        <a href="live-orders.php" class="nav-item live">
-            <span>🔴</span>
-            Live Orders
-            <span class="badge">4</span>
-        </a>
+       
 
 
         <p class="nav-title">FOOD MANAGEMENT</p>
@@ -173,7 +169,9 @@
 
                 <strong>Restaurant Admin</strong>
 
+
                 <small>Administrator</small>
+                <a href="restaurant-login.php">
 
             </div>
 
