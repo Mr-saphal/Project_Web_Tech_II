@@ -44,7 +44,7 @@ if(isset($_POST['email']) && !empty($_POST['email']) && trim($_POST['email'])!='
     $user = mysqli_fetch_assoc($result);
     $_SESSION['username']= $user['name'];
   
-        header("Location: index.php");
+        header("Location: index2.php");
       }else{
         echo "<p style='color:red'>User has not been registered.</p>";
       } 

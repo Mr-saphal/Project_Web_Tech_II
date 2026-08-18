@@ -114,12 +114,16 @@ if (isset($_POST['createAccount'])) {
 
             
             if($result){
-        header("Location: index.php");
+        header("Location: index2.php");
       }else{
         echo "<p style='color:red'>User has not been registered.</p>";
       } 
 
+
+      
+
         }
+        
 
             echo "Database connection error: "
                  . mysqli_connect_error();
